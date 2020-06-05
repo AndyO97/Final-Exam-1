@@ -11,18 +11,36 @@ class App extends React.Component{
       /*
         Your code goes here
       */
+      books :[]
     }
   }
 
   /* 
     Your code goes here
   */
+  componentDidMount(){
+    fetch()
+  }
 
   render(){
     return(
       <div>
+        <h1>Welcome to the book app</h1>
+        <div className="contentContainer">
+          <div id="booksForm">
+            <BookForm />
+          </div>
+          <div id="books">
+            {this.state.books.map((book, index) =>{
+              return(
+                <Book >
+              )
+            }
+            )}
+          </div>
+        </div>
         {/* 
-          Your code goes here
+          
         */}
       </div>
     )
