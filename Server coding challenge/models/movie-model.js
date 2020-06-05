@@ -37,10 +37,43 @@ const Movies = {
                 .catch( err => {
                     throw new Error( err );
                 });
-    }
+    },
     /*
         Your code goes here
     */
+   updateMovie : function( Pid ){
+    return moviesCollection
+            .findOne( {movie_ID: Pid} )
+            .then( updatedMovie => {
+                return updatedtedMovie;
+            })
+            .populate('actors', 'firstName', 'lastName')
+            .catch( err => {
+                throw new Error( err );
+            });
+    },
+    getMovieById : function( Pid ){
+        return moviesCollection
+                .findOne( {movie_ID: Pid} )
+                .then( updatedMovie => {
+                    return updatedtedMovie;
+                })
+                .populate('actors', 'firstName', 'lastName')
+                .catch( err => {
+                    throw new Error( err );
+                });
+    },
+    removeActorFromMovieList : function( Pid ){
+        return moviesCollection
+                .findOne( {movie_ID: Pid} )
+                .then( updatedMovie => {
+                    return updatedtedMovie;
+                })
+                .populate('actors', 'firstName', 'lastName')
+                .catch( err => {
+                    throw new Error( err );
+                });
+    }
 }
 
 module.exports = {

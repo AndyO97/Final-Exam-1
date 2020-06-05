@@ -28,10 +28,40 @@ const Actors = {
                 .catch( err => {
                     throw new Error( err );
                 });
-    }
+    },
     /*
         Your code goes here
     */
+    deleteActor : function( PFirstName, PLastName ){
+    return actorsCollection
+            .findOneAndDelete( {firstName: PFirstName, lastName: PLastName} )
+            .then( deletedActor => {
+                return deletedActor;
+            })
+            .catch( err => {
+                throw new Error( err );
+            });
+    },
+    findActor : function( PFirstName, PLastName ){
+        return actorsCollection
+                .findOne( {firstName: PFirstName, lastName: PLastName} )
+                .then( Actor => {
+                    return Actor;
+                })
+                .catch( err => {
+                    throw new Error( err );
+                });
+    },
+    getActorByName : function( PFirstName, PLastName ){
+        return actorsCollection
+                .findOne( {firstName: PFirstName, lastName: PLastName} )
+                .then( Actor => {
+                    return Actor;
+                })
+                .catch( err => {
+                    throw new Error( err );
+                });
+    }
 }
 
 module.exports = {
